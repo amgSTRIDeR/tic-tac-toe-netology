@@ -2,16 +2,16 @@ let players = ['x', 'o'];
 let activePlayer = 0;
 let board;
 
-function startGame() {
-  console.log("Player " + activePlayer + " move");
 
-  board = [
-    ['', '', ''], 
-    ['', '', ''], 
-    ['', '', ''], 
-  ];
+function startGame() {
+  board = [['', '', ''], 
+           ['', '', ''], 
+           ['', '', ''], 
+         ];
   
   renderBoard(board);
+  
+  console.log(`Player ${activePlayer + 1} (${players[activePlayer].toUpperCase()}) move`);
 }
 
 function click(row, column) {
@@ -45,7 +45,6 @@ function click(row, column) {
       count = 0;
     }
 
-        
      for (let i = 0; i < board.length; i++) {
         if (board[i][i] == players[activePlayer]) {
           count += 1;
@@ -72,8 +71,8 @@ function click(row, column) {
 
     activePlayer = activePlayer == 0 ? 1 : 0;
     
-    console.log("Player " + activePlayer + " move");
+    console.clear();
+    
+    console.log(`Player ${activePlayer + 1} (${players[activePlayer].toUpperCase()}) move`);
   }
 }
-
-// click вызывается при клике игрока по полю. Вызов происходит с двумя значениями — номер строки и колонки, по которой произошел клик. В этой функции нужно обновить игровое поле и проверить, выиграл ли игрок, либо можно передавать ход следующему.
